@@ -3,6 +3,7 @@ package de.wirvsvirus.backend.api.service;
 import de.wirvsvirus.backend.api.model.OfferStatus;
 import de.wirvsvirus.backend.api.model.entity.UserCoordinate;
 import de.wirvsvirus.backend.api.model.entity.UserOffer;
+import de.wirvsvirus.backend.api.repository.IUserCoordinateRepository;
 import de.wirvsvirus.backend.api.repository.IUserOfferRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,7 @@ import static java.util.stream.Collectors.toList;
 public class UserOfferService {
 
     private final IUserOfferRepository userOfferRepository;
+    private final IUserCoordinateRepository userCoordinateRepository;
 
     /**
      *
@@ -53,5 +55,10 @@ public class UserOfferService {
                 .filter(userOffer ->
                         isInRange(userOffer, userCoordinate, distance))
                 .collect(toList());
+    }
+
+    public UserOffer save(UserOffer offer) {
+        offer.setUserCoordinate(userCoordinateRepository.save(offer.getUserCoordinate()));
+        return userOfferRepository.save(offer);
     }
 }
