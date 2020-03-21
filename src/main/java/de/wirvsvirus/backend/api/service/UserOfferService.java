@@ -57,6 +57,7 @@ public class UserOfferService {
                 .collect(toList());
     }
 
+    @Transactional
     public UserOffer save(UserOffer offer) {
         offer.setUserCoordinate(userCoordinateRepository.save(offer.getUserCoordinate()));
         return userOfferRepository.save(offer);
