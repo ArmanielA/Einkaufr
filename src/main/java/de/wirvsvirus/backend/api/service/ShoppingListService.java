@@ -1,7 +1,7 @@
 package de.wirvsvirus.backend.api.service;
 
-import de.wirvsvirus.backend.api.model.ShoppingList;
-import de.wirvsvirus.backend.api.model.UserCoordinate;
+import de.wirvsvirus.backend.api.model.entity.ShoppingList;
+import de.wirvsvirus.backend.api.model.entity.UserCoordinate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

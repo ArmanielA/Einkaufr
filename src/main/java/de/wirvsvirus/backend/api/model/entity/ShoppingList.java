@@ -1,7 +1,9 @@
-package de.wirvsvirus.backend.api.model;
+package de.wirvsvirus.backend.api.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -11,7 +13,7 @@ import java.util.List;
 
 @Entity
 @Data
-@AllArgsConstructor
+@Getter @Setter
 public class ShoppingList {
     @Id
     private Long id;

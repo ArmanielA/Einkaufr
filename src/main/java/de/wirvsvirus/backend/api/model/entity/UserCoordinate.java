@@ -2,6 +2,8 @@ package de.wirvsvirus.backend.api.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.persistence.Entity;
@@ -12,6 +14,7 @@ import javax.persistence.Id;
 @Entity
 @Data
 @AllArgsConstructor
+@Getter @Setter
 public class UserCoordinate{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

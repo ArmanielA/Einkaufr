@@ -1,9 +1,11 @@
 package de.wirvsvirus.backend.api.model.entity;
 
+import de.wirvsvirus.backend.api.model.OfferStatus;
 import de.wirvsvirus.backend.api.model.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.jpa.repository.JpaRepository;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -11,6 +13,7 @@ import javax.persistence.*;
 @Entity
 @Data
 @AllArgsConstructor
+@Getter @Setter
 public class UserOffer {
 
     @Id
@@ -26,8 +29,10 @@ public class UserOffer {
     @Column(nullable = false)
     private Double perimeter;
 
-    @Column(nullable = false)
     @OneToOne
     private UserCoordinate userCoordinate;
+
+    @Column(nullable = false)
+    private OfferStatus offerStatus;
 
 }
