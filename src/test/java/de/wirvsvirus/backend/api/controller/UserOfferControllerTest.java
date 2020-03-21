@@ -23,7 +23,7 @@ import static org.junit.Assert.*;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserOfferControllerTest {
-    //http://localhost:8080/
+
     private static String API_ROOT = "http://localhost:8080/api/v1/offers";
 
     private UserOffer createRandomOffer() {
@@ -58,13 +58,28 @@ public class UserOfferControllerTest {
     }
 
     @Test
-    public void whenGetOfferById_thenOK(){
+    public void whenGetOfferById_thenOK() {
         UserOffer offer = createRandomOffer();
         String location = createOfferAsURI(offer);
-        Response response= RestAssured.get(location);
+        Response response = RestAssured.get(location);
 
-        Assert.assertEquals(HttpStatus.OK.value(),response.getStatusCode());
+        Assert.assertEquals(HttpStatus.OK.value(), response.getStatusCode());
+    }
 
+    @Test
+    public void whenGetBookByIdNotExists_thenNotFound() {
+        Response response = RestAssured.get(API_ROOT + "/" + RandomStringUtils.randomNumeric(5));
+        Assert.assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
+    }
+
+    @Test
+    public void whenCreateNewOffer_thenOk() {
+        UserOffer offer = createRandomOffer();
+        Response response = RestAssured.given()
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .body(offer)
+                .post(API_ROOT);
+        Assert.assertEquals(HttpStatus.CREATED.value(), response.getStatusCode());
     }
 
     @Test
