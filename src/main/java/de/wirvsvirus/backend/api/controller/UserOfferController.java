@@ -47,7 +47,7 @@ public class UserOfferController {
         userOfferService.takeOffer(id);
     }
 
-    @GetMapping
+    @GetMapping("findWithinRange")
     public List<UserOffer> getOffersInRange(@RequestParam Long lat, @RequestParam Long lon, @RequestParam Long distance){
             return userOfferService.getUserOffersInRange(new UserCoordinate(0L, lon, lat), distance);
     }
