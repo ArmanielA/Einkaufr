@@ -1,6 +1,7 @@
 package de.wirvsvirus.backend.api.controller;
 
 import de.wirvsvirus.backend.api.exception.OfferNotFoundException;
+import de.wirvsvirus.backend.api.model.entity.UserCoordinate;
 import de.wirvsvirus.backend.api.model.entity.UserOffer;
 import de.wirvsvirus.backend.api.repository.IUserOfferRepository;
 import de.wirvsvirus.backend.api.service.UserOfferService;
@@ -43,6 +44,11 @@ public class UserOfferController {
     @PutMapping("take/{id}")
     public void takeOffer(@PathVariable Long id) {
         userOfferService.takeOffer(id);
+    }
+
+    @GetMapping
+    public List<UserOffer> getOffersInRange(@RequestParam Long lat, @RequestParam Long lon, @RequestParam Long distance){
+            return userOfferService.getUserOffersInRange(new UserCoordinate(0L, lon, lat), distance);
     }
 
 }

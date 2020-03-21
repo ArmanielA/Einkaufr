@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -27,8 +28,9 @@ public class UserOffer {
 
     @Column(nullable = false)
     private OfferStatus offerStatus;
-
-    @OneToOne
-    private ShoppingList shoppingList;
+    
+    @Column(nullable = false)
+    @ElementCollection
+    private List<String> shoppingCart;
 
 }
