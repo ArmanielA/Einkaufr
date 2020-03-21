@@ -13,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 
 @Service
@@ -55,15 +54,5 @@ public class ShoppingListService {
      */
     public ShoppingList getShoppingList(Long offerId) {
         return shoppingListRepository.getOne(offerId);
-    }
-
-    /**
-     *
-     * @param offerId id of person in quarantine
-     * @return true, if offer is taken
-     */
-    public boolean isOfferClaimed(Long offerId) {
-        Optional<UserOffer> userOffer = userOfferRepository.findById(offerId);
-        return userOffer.map(offer -> offer.getOfferStatus().equals(OfferStatus.CLAIMED)).orElse(false);
     }
 }

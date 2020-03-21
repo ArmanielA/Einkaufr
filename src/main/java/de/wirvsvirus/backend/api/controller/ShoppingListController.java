@@ -1,0 +1,26 @@
+package de.wirvsvirus.backend.api.controller;
+
+
+import de.wirvsvirus.backend.api.model.entity.ShoppingList;
+import de.wirvsvirus.backend.api.model.entity.UserCoordinate;
+import de.wirvsvirus.backend.api.service.ShoppingListService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/v1/shoppingList")
+@RequiredArgsConstructor
+public class ShoppingListController {
+
+    private final ShoppingListService shoppingListService;
+
+    @GetMapping
+    public List<ShoppingList> getNearShoppingLists(@RequestBody UserCoordinate userCoordinate, @RequestBody Long distance) {
+        return shoppingListService.getShoppingListInRange(userCoordinate, distance);
+    }
+}
