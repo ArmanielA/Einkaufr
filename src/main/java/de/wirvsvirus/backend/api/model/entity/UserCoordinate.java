@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -6,6 +6,5 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface IUserOfferRepository extends CrudRepository<UserOffer, Long> {
-    List<UserOffer> findUserOfferByPerimeter(Double perimeter);
 
 }

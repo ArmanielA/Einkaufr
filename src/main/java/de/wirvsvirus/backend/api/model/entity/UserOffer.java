@@ -1,7 +1,6 @@
 package de.wirvsvirus.backend.api.model.entity;
 
 import de.wirvsvirus.backend.api.model.OfferStatus;
-import de.wirvsvirus.backend.api.model.UserType;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -21,18 +20,15 @@ public class UserOffer {
     private Long id;
 
     @Column(nullable = false)
-    private UserType userType;
-
-    @Column(nullable = false)
     private long timestamp;
-
-    @Column(nullable = false)
-    private Double perimeter;
 
     @OneToOne
     private UserCoordinate userCoordinate;
 
     @Column(nullable = false)
     private OfferStatus offerStatus;
+
+    @OneToOne
+    private ShoppingList shoppingList;
 
 }
