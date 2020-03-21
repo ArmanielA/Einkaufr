@@ -25,4 +25,13 @@ public class UserOfferService {
         Optional<UserOffer> userOffer = userOfferRepository.findById(offerId);
         return userOffer.map(offer -> offer.getOfferStatus().equals(OfferStatus.CLAIMED)).orElse(false);
     }
+
+    public void takeOffer(Long offerId) {
+        Optional<UserOffer> userOffer = userOfferRepository.findById(offerId);
+        if (userOffer.isPresent()) {
+            UserOffer changedOffer = userOffer.get();
+            changedOffer.setOfferStatus(OfferStatus.CLAIMED);
+            userOfferRepository.save(changedOffer);
+        }
+    }
 }

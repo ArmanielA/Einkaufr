@@ -40,4 +40,9 @@ public class UserOfferController {
         return userOfferService.isOfferClaimed(id);
     }
 
+    @PutMapping("take/{id}")
+    public void takeOffer(@PathVariable Long id) {
+        userOfferService.takeOffer(id);
+    }
+
 }
