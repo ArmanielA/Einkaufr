@@ -1,10 +1,7 @@
 package de.wirvsvirus.backend.api.model.entity;
 
 import de.wirvsvirus.backend.api.model.OfferStatus;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
 public class UserOffer {
