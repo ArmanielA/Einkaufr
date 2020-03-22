@@ -62,4 +62,12 @@ public class UserOfferService {
         offer.setUserCoordinate(userCoordinateRepository.save(offer.getUserCoordinate()));
         return userOfferRepository.save(offer);
     }
+
+    public List<UserOffer> getOffersByUUID(String uuid) {
+        return userOfferRepository.findAll()
+                .stream()
+                .filter(offer ->
+                        offer.getOwner().equals(uuid) || offer.getHelper().equals(uuid))
+                .collect(toList());
+    }
 }

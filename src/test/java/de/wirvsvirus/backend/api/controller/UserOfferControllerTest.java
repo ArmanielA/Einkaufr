@@ -18,8 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserOfferControllerTest {
@@ -36,6 +34,8 @@ public class UserOfferControllerTest {
         shoppingList.add(RandomStringUtils.randomAlphabetic(5));
         shoppingList.add(RandomStringUtils.randomAlphabetic(20));
         UserOffer offer = new UserOffer(random.nextLong(),
+                                        random.toString(),
+                                        null,
                                         random.toString(),
                                         random.nextLong(),
                                         coordinate,

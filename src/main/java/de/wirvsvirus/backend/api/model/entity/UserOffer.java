@@ -18,6 +18,12 @@ public class UserOffer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+	@Column
+	private String owner;
+
+	@Column
+	private String helper;
+
     @Column
     private String title;
 

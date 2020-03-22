@@ -31,6 +31,11 @@ public class UserOfferController {
                 .orElseThrow(OfferNotFoundException::new);
     }
 
+    @GetMapping
+    public List<UserOffer> getOffersByUUID(@RequestParam String uuid){
+    	return userOfferService.getOffersByUUID(uuid);
+    }
+
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public UserOffer createUserOffer(@RequestBody UserOffer offer){
