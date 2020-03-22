@@ -1,9 +1,6 @@
 package de.wirvsvirus.backend.api.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -12,6 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 @AllArgsConstructor
 @Getter @Setter
 public class UserCoordinate{

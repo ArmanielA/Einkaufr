@@ -34,7 +34,7 @@ public class UserOfferController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public UserOffer createUserOffer(@RequestBody UserOffer offer){
-        return offerRepository.save(offer);
+        return userOfferService.save(offer);
     }
 
     @GetMapping("/status/{id}")
