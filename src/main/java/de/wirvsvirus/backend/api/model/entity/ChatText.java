@@ -1,18 +1,16 @@
 package de.wirvsvirus.backend.api.model.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import java.time.LocalDate;
+import lombok.*;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Data
+@RequiredArgsConstructor
 @AllArgsConstructor
 public class ChatText {
-    @Column
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column
     private boolean sendFromHelper;
