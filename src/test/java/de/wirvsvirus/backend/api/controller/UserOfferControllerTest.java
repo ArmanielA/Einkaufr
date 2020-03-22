@@ -36,6 +36,7 @@ public class UserOfferControllerTest {
         shoppingList.add(RandomStringUtils.randomAlphabetic(5));
         shoppingList.add(RandomStringUtils.randomAlphabetic(20));
         UserOffer offer = new UserOffer(random.nextLong(),
+                                        random.toString(),
                                         random.nextLong(),
                                         coordinate,
                                         OfferStatus.UNCLAIMED,
