@@ -40,4 +40,7 @@ public class UserOffer {
     @ElementCollection
     private List<String> shoppingCart;
 
+    @OneToMany
+    private List<ChatText> chatTexts;
+
 }

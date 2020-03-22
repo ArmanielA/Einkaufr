@@ -1,6 +1,7 @@
 package de.wirvsvirus.backend.api.controller;
 
 import de.wirvsvirus.backend.api.model.OfferStatus;
+import de.wirvsvirus.backend.api.model.entity.ChatText;
 import de.wirvsvirus.backend.api.model.entity.UserCoordinate;
 import de.wirvsvirus.backend.api.model.entity.UserOffer;
 import io.restassured.RestAssured;
@@ -15,6 +16,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -30,6 +32,7 @@ public class UserOfferControllerTest {
                                                        random.nextLong(),
                                                        random.nextLong());
         List<String> shoppingList = new ArrayList<>();
+        List<ChatText> chatTextList = new LinkedList<>();
         shoppingList.add(RandomStringUtils.randomAlphabetic(10));
         shoppingList.add(RandomStringUtils.randomAlphabetic(5));
         shoppingList.add(RandomStringUtils.randomAlphabetic(20));
@@ -40,7 +43,8 @@ public class UserOfferControllerTest {
                                         random.nextLong(),
                                         coordinate,
                                         OfferStatus.UNCLAIMED,
-                                        shoppingList);
+                                        shoppingList,
+                                        chatTextList);
         return offer;
     }
 
