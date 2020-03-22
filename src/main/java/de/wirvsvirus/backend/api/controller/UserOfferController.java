@@ -31,7 +31,7 @@ public class UserOfferController {
                 .orElseThrow(OfferNotFoundException::new);
     }
 
-    @GetMapping
+    @GetMapping("/own")
     public List<UserOffer> getOffersByUUID(@RequestParam String uuid){
     	return userOfferService.getOffersByUUID(uuid);
     }
