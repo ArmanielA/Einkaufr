@@ -7,6 +7,7 @@ import de.wirvsvirus.backend.api.repository.IUserOfferRepository;
 import de.wirvsvirus.backend.api.service.UserOfferService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -32,6 +33,7 @@ public class UserOfferController {
     }
 
     @GetMapping("/own")
+    @Transactional
     public List<UserOffer> getOffersByUUID(@RequestParam String uuid){
     	return userOfferService.getOffersByUUID(uuid);
     }
