@@ -18,6 +18,9 @@ public class UserOffer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Column
+    private String title;
+
     @Column(nullable = false)
     private long timestamp;
 
