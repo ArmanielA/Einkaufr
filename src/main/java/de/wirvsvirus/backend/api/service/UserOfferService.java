@@ -1,14 +1,17 @@
 package de.wirvsvirus.backend.api.service;
 
 import de.wirvsvirus.backend.api.model.OfferStatus;
+import de.wirvsvirus.backend.api.model.entity.ChatText;
 import de.wirvsvirus.backend.api.model.entity.UserCoordinate;
 import de.wirvsvirus.backend.api.model.entity.UserOffer;
 import de.wirvsvirus.backend.api.repository.IUserCoordinateRepository;
 import de.wirvsvirus.backend.api.repository.IUserOfferRepository;
+import de.wirvsvirus.backend.api.repository.IUserChatTextRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,6 +25,7 @@ public class UserOfferService {
 
     private final IUserOfferRepository userOfferRepository;
     private final IUserCoordinateRepository userCoordinateRepository;
+    private final IUserChatTextRepository userChatTextRepository;
 
     /**
      *
@@ -59,6 +63,7 @@ public class UserOfferService {
 
     @Transactional
     public UserOffer save(UserOffer offer) {
+        offer.setChatTexts(userChatTextRepository.saveAll(offer.getChatTexts()));
         offer.setUserCoordinate(userCoordinateRepository.save(offer.getUserCoordinate()));
         return userOfferRepository.save(offer);
     }
